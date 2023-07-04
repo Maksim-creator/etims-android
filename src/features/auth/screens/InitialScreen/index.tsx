@@ -3,6 +3,7 @@ import {Animated, Easing, SafeAreaView, View} from 'react-native';
 import Button from '../../../../components/Button';
 import PoppinsText from '../../../../components/PoppinsText';
 import InterText from '../../../../components/InterText';
+import Logo from '../../../../components/Logo';
 import styles from './styles';
 
 const InitialScreen = () => {
@@ -20,25 +21,25 @@ const InitialScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Animated.View
-        style={[
-          {
-            opacity: opacityAnimation.current,
-          },
-          styles.content,
-        ]}>
-        <View>
-          <PoppinsText style={styles.title}>Explore the app</PoppinsText>
-          <InterText style={styles.subtitle}>
-            Now your finances are in one place and always under control
-          </InterText>
+        style={[{opacity: opacityAnimation.current}, styles.wrapper]}>
+        <View style={styles.logo}>
+          <Logo />
         </View>
-        <View>
-          <Button
-            primary
-            buttonText={'Sign In'}
-            buttonStyles={styles.signInButton}
-          />
-          <Button buttonText={'Create account'} />
+        <View style={styles.content}>
+          <View>
+            <PoppinsText style={styles.title}>Explore the app</PoppinsText>
+            <InterText style={styles.subtitle}>
+              Now your finances are in one place and always under control
+            </InterText>
+          </View>
+          <View>
+            <Button
+              primary
+              buttonText={'Sign In'}
+              buttonStyles={styles.signInButton}
+            />
+            <Button buttonText={'Create account'} />
+          </View>
         </View>
       </Animated.View>
     </SafeAreaView>
