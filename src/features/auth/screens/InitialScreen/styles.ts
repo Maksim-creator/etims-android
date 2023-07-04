@@ -28,4 +28,11 @@ export default StyleSheet.create({
   signInButton: {
     marginBottom: 10,
   },
+  logo: {
+    flex: 0.5,
+    justifyContent: 'center',
+  },
+  wrapper: {
+    flex: 1,
+  },
 });
