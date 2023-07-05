@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {SafeAreaView, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Formik} from 'formik';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import Star from '../../../../components/Star';
 import PoppinsText from '../../../../components/PoppinsText';
 import Input from '../../../../components/Input';
@@ -11,9 +13,11 @@ import Facebook from '../../../../../assets/svgs/Facebook';
 import Google from '../../../../../assets/svgs/Google';
 import Apple from '../../../../../assets/svgs/Apple';
 import {SignInSchema} from '../../utils';
+import {ScreenNames} from '../../../../navigation/screenNames';
 import styles from './styles';
 
 const Login = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const showPassword = () => setIsPasswordVisible(true);
@@ -28,6 +32,9 @@ const Login = () => {
       <></>
     );
 
+  const navigateToSignUp = () =>
+    navigation.navigate(ScreenNames.SIGN_UP_PREVIEW);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.star}>
@@ -35,7 +42,6 @@ const Login = () => {
       </View>
       <View style={styles.content}>
         <PoppinsText style={styles.loginText}>Log in</PoppinsText>
-
         <Formik
           validationSchema={SignInSchema}
           initialValues={{email: '', password: ''}}
@@ -105,7 +111,7 @@ const Login = () => {
       </View>
       <View style={styles.signupContainer}>
         <InterText>Don't have an account? </InterText>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={navigateToSignUp}>
           <InterText style={styles.signupText}>Sign up</InterText>
         </TouchableOpacity>
       </View>

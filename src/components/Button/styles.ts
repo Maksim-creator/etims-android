@@ -16,10 +16,11 @@ export default StyleSheet.create({
     paddingVertical: 14,
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'row',
   },
   buttonText: {
     fontSize: 16,
-    fontFamily: 'Inter-Bold',
+    fontFamily: 'Inter-SemiBold',
   },
   primaryText: {
     color: 'white',
@@ -27,4 +28,5 @@ export default StyleSheet.create({
   secondaryText: {
     color: mainBlue,
   },
+  leftIcon: {paddingLeft: 19, paddingRight: 14},
 });

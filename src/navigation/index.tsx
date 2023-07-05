@@ -10,7 +10,9 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        screenOptions={{headerShown: false}}
+        screenOptions={{
+          headerShown: false,
+        }}
         initialRouteName={ScreenNames.INITIAL}>
         <Stack.Screen name={ScreenNames.AUTH} component={AuthStack} />
       </Stack.Navigator>
