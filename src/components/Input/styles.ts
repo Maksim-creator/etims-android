@@ -1,9 +1,10 @@
 import {StyleSheet} from 'react-native';
+import {grey} from '../../../assets/colors';
 
 export default StyleSheet.create({
   input: {
     borderWidth: 1,
-    borderColor: 'rgba(216, 218, 220, 1)',
+    borderColor: grey,
     borderRadius: 5,
     paddingVertical: 17,
     paddingHorizontal: 12,

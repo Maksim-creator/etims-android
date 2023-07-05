@@ -1,5 +1,12 @@
-import React from 'react';
-import {StyleProp, TouchableOpacity, ViewStyle} from 'react-native';
+import React, {ReactElement} from 'react';
+import {
+  StyleProp,
+  TextStyle,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
+import {Icon} from 'react-native-vector-icons/Icon';
 import InterText from '../InterText';
 import styles from './styles';
 
@@ -7,14 +14,18 @@ interface Props {
   buttonText?: string;
   primary?: boolean;
   buttonStyles?: StyleProp<ViewStyle>;
+  buttonTextStyles?: StyleProp<TextStyle>;
   onPress: () => void;
+  leftIcon?: ReactElement<Icon>;
 }
 
 const Button: React.FC<Props> = ({
   buttonText,
   primary,
   buttonStyles,
+  buttonTextStyles,
   onPress,
+  leftIcon,
 }) => {
   return (
     <TouchableOpacity
@@ -24,10 +35,12 @@ const Button: React.FC<Props> = ({
         primary ? styles.primary : styles.secondary,
         buttonStyles,
       ]}>
+      {leftIcon && <View style={styles.leftIcon}>{leftIcon}</View>}
       <InterText
         style={[
           styles.buttonText,
           primary ? styles.primaryText : styles.secondaryText,
+          buttonTextStyles,
         ]}>
         {buttonText}
       </InterText>

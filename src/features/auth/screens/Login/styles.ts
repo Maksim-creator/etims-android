@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {mainBlue} from '../../../../../assets/colors';
+import {grey, mainBlue} from '../../../../../assets/colors';
 
 export default StyleSheet.create({
   container: {
@@ -43,7 +43,7 @@ export default StyleSheet.create({
   socialNetwork: {
     borderWidth: 1,
     borderRadius: 10,
-    borderColor: 'rgba(216, 218, 220, 1)',
+    borderColor: grey,
     paddingVertical: 18,
     paddingHorizontal: 44,
   },
