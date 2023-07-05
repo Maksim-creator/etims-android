@@ -1,13 +1,19 @@
 import React, {useEffect, useRef} from 'react';
 import {Animated, Easing, SafeAreaView, View} from 'react-native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
 import Button from '../../../../components/Button';
 import PoppinsText from '../../../../components/PoppinsText';
 import InterText from '../../../../components/InterText';
 import Logo from '../../../../components/Logo';
+import {ScreenNames} from '../../../../navigation/screenNames';
 import styles from './styles';
 
 const InitialScreen = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   const opacityAnimation = useRef(new Animated.Value(0));
+
+  const navigateToLogin = () => navigation.navigate(ScreenNames.LOGIN);
 
   useEffect(() => {
     Animated.timing(opacityAnimation.current, {
@@ -37,8 +43,9 @@ const InitialScreen = () => {
               primary
               buttonText={'Sign In'}
               buttonStyles={styles.signInButton}
+              onPress={navigateToLogin}
             />
-            <Button buttonText={'Create account'} />
+            <Button buttonText={'Create account'} onPress={() => {}} />
           </View>
         </View>
       </Animated.View>

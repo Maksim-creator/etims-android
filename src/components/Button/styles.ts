@@ -19,6 +19,7 @@ export default StyleSheet.create({
   },
   buttonText: {
     fontSize: 16,
+    fontFamily: 'Inter-Bold',
   },
   primaryText: {
     color: 'white',

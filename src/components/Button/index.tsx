@@ -7,11 +7,18 @@ interface Props {
   buttonText?: string;
   primary?: boolean;
   buttonStyles?: StyleProp<ViewStyle>;
+  onPress: () => void;
 }
 
-const Button: React.FC<Props> = ({buttonText, primary, buttonStyles}) => {
+const Button: React.FC<Props> = ({
+  buttonText,
+  primary,
+  buttonStyles,
+  onPress,
+}) => {
   return (
     <TouchableOpacity
+      onPress={onPress}
       style={[
         styles.button,
         primary ? styles.primary : styles.secondary,
