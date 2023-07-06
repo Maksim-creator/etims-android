@@ -4,11 +4,11 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Formik} from 'formik';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import Star from '../../../../components/Star';
 import PoppinsText from '../../../../components/PoppinsText';
 import Input from '../../../../components/Input';
 import Button from '../../../../components/Button';
 import InterText from '../../../../components/InterText';
+import Header from '../../components/Header';
 import Facebook from '../../../../../assets/svgs/Facebook';
 import Google from '../../../../../assets/svgs/Google';
 import Apple from '../../../../../assets/svgs/Apple';
@@ -35,10 +35,13 @@ const Login = () => {
   const navigateToSignUp = () =>
     navigation.navigate(ScreenNames.SIGN_UP_PREVIEW);
 
+  const navigateToForgotPassword = () =>
+    navigation.navigate(ScreenNames.FORGOT_PASSWORD);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.star}>
-        <Star />
+        <Header />
       </View>
       <View style={styles.content}>
         <PoppinsText style={styles.loginText}>Log in</PoppinsText>
@@ -60,6 +63,7 @@ const Login = () => {
                 onChange={handleChange('email')}
                 onBlur={handleBlur('email')}
                 title={'Email address'}
+                placeholder={'Your email'}
                 error={errors.email}
                 touched={touched.email}
                 rightIcon={renderEmailIcon(values.email.length, errors.email)}
@@ -68,6 +72,7 @@ const Login = () => {
                 value={values.password}
                 onChange={handleChange('password')}
                 onBlur={handleBlur('password')}
+                placeholder={'Your password'}
                 title={'Password'}
                 touched={touched.password}
                 error={errors.password}
@@ -83,7 +88,9 @@ const Login = () => {
                   />
                 }
               />
-              <TouchableOpacity style={styles.forgotPasswordButton}>
+              <TouchableOpacity
+                onPress={navigateToForgotPassword}
+                style={styles.forgotPasswordButton}>
                 <InterText style={styles.forgotPasswordText}>
                   Forgot password?
                 </InterText>

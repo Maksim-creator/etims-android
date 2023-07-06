@@ -39,7 +39,11 @@ export default StyleSheet.create({
     flex: 0.3,
     backgroundColor: 'rgba(148,148,148,0.5)',
   },
-  loginWithText: {paddingHorizontal: 10, flex: 0.3},
+  loginWithText: {
+    paddingHorizontal: 10,
+    flex: 0.3,
+    color: 'rgba(0, 0, 0, 0.7)',
+  },
   socialNetworks: {flexDirection: 'row', justifyContent: 'space-between'},
   socialNetwork: {
     borderWidth: 1,
@@ -56,5 +60,5 @@ export default StyleSheet.create({
     paddingBottom: 15,
   },
   signupText: {color: mainBlue, fontFamily: 'Inter-Bold'},
-  loginButton: {paddingVertical: 18},
+  loginButton: {paddingVertical: 16},
 });

@@ -22,7 +22,7 @@ export default StyleSheet.create({
   inputs: {paddingVertical: 23},
   input: {marginVertical: 7},
   passwordIcon: {position: 'absolute', right: 15, top: '33%'},
-  submitButton: {borderRadius: 10, paddingVertical: 18},
+  submitButton: {borderRadius: 10, paddingVertical: 16},
   termsWrapper: {
     flex: 0.3,
     flexWrap: 'wrap',
@@ -36,4 +36,5 @@ export default StyleSheet.create({
     textDecorationLine: 'underline',
     fontFamily: 'Inter-SemiBold',
   },
+  text: {color: 'rgba(0, 0, 0, 0.7)'},
 });

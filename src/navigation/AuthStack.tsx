@@ -4,6 +4,7 @@ import InitialScreen from '../features/auth/screens/InitialScreen';
 import Login from '../features/auth/screens/Login';
 import SignUpPreview from '../features/auth/screens/SignUpPreview';
 import SingUp from '../features/auth/screens/SingUp';
+import ForgotPassword from '../features/auth/screens/ForgotPassword';
 import {ScreenNames} from './screenNames';
 
 const Stack = createNativeStackNavigator();
@@ -22,6 +23,10 @@ const AuthStack = () => {
         component={SignUpPreview}
       />
       <Stack.Screen name={ScreenNames.SIGN_UP} component={SingUp} />
+      <Stack.Screen
+        name={ScreenNames.FORGOT_PASSWORD}
+        component={ForgotPassword}
+      />
     </Stack.Navigator>
   );
 };

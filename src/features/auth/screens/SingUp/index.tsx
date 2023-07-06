@@ -50,7 +50,6 @@ const SingUp = () => {
                     error={errors.email}
                     onChange={handleChange('email')}
                     placeholder={'Email address'}
-                    placeholderTextColor={'rgba(0,0,0,0.5)'}
                     containerStyle={styles.input}
                   />
                   <Input
@@ -60,7 +59,6 @@ const SingUp = () => {
                     error={errors.password}
                     onChange={handleChange('password')}
                     placeholder={'Password'}
-                    placeholderTextColor={'rgba(0,0,0,0.5)'}
                     containerStyle={styles.input}
                     isPassword={!isPasswordVisible}
                     rightIcon={
@@ -83,7 +81,6 @@ const SingUp = () => {
                     error={errors.confirmPassword}
                     onChange={handleChange('confirmPassword')}
                     placeholder={'Confirm password'}
-                    placeholderTextColor={'rgba(0,0,0,0.5)'}
                     containerStyle={styles.input}
                     isPassword={!isConfirmPasswordVisible}
                     rightIcon={
@@ -115,9 +112,11 @@ const SingUp = () => {
           </Formik>
         </View>
         <View style={styles.termsWrapper}>
-          <InterText>By creating an account or signing you</InterText>
+          <InterText style={styles.text}>
+            By creating an account or signing you
+          </InterText>
           <View style={styles.textWrapper}>
-            <InterText>agree to our </InterText>
+            <InterText style={styles.text}>agree to our </InterText>
             <TouchableOpacity>
               <InterText style={styles.termsButton}>
                 Terms and Conditions

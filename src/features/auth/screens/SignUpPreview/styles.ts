@@ -13,7 +13,7 @@ export default StyleSheet.create({
   socialNetworkText: {color: 'black'},
   container: {flex: 1},
   content: {
-    flex: 0.85,
+    flex: 1.3,
     backgroundColor: 'rgba(240, 243, 251, 1)',
     borderRadius: 32,
     marginHorizontal: 10,
@@ -31,4 +31,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   loginText: {color: mainBlue, fontFamily: 'Inter-SemiBold'},
+  text: {
+    color: 'rgba(0, 0, 0, 0.7)',
+  },
 });

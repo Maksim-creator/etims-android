@@ -7,9 +7,9 @@ import styles from './styles';
 const Greeting = () => {
   return (
     <View>
-      <PoppinsText style={styles.title}>Explore the app</PoppinsText>
+      <PoppinsText style={styles.title}>Welcome to ETIMS Cloud</PoppinsText>
       <InterText style={styles.subtitle}>
-        Now your finances are in one place and always under control
+        The system is intended to control learning process. Register right now
       </InterText>
     </View>
   );
