@@ -32,10 +32,11 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingTop: 38,
     paddingBottom: 22,
+    alignSelf: 'center',
   },
   divider: {
     height: 1,
-    flex: 0.4,
+    flex: 0.3,
     backgroundColor: 'rgba(148,148,148,0.5)',
   },
   loginWithText: {paddingHorizontal: 10, flex: 0.3},
@@ -55,4 +56,5 @@ export default StyleSheet.create({
     paddingBottom: 15,
   },
   signupText: {color: mainBlue, fontFamily: 'Inter-Bold'},
+  loginButton: {paddingVertical: 18},
 });

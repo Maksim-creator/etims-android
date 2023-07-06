@@ -41,7 +41,11 @@ const InitialScreen = () => {
               buttonStyles={styles.signInButton}
               onPress={navigateToLogin}
             />
-            <Button buttonText={'Create account'} onPress={navigateToSignUp} />
+            <Button
+              buttonText={'Create account'}
+              onPress={navigateToSignUp}
+              buttonStyles={styles.createButton}
+            />
           </View>
         </View>
       </Animated.View>

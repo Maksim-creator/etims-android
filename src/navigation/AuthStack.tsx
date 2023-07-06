@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import InitialScreen from '../features/auth/screens/InitialScreen';
 import Login from '../features/auth/screens/Login';
 import SignUpPreview from '../features/auth/screens/SignUpPreview';
+import SingUp from '../features/auth/screens/SingUp';
 import {ScreenNames} from './screenNames';
 
 const Stack = createNativeStackNavigator();
@@ -20,6 +21,7 @@ const AuthStack = () => {
         name={ScreenNames.SIGN_UP_PREVIEW}
         component={SignUpPreview}
       />
+      <Stack.Screen name={ScreenNames.SIGN_UP} component={SingUp} />
     </Stack.Navigator>
   );
 };

@@ -9,6 +9,7 @@ export default StyleSheet.create({
     paddingVertical: 17,
     paddingHorizontal: 12,
     fontSize: 16,
+    backgroundColor: 'white',
   },
   title: {
     paddingVertical: 6,

@@ -88,7 +88,12 @@ const Login = () => {
                   Forgot password?
                 </InterText>
               </TouchableOpacity>
-              <Button onPress={handleSubmit} buttonText={'Log in'} primary />
+              <Button
+                onPress={handleSubmit}
+                buttonText={'Log in'}
+                primary
+                buttonStyles={styles.loginButton}
+              />
             </View>
           )}
         </Formik>
