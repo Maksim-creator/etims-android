@@ -12,7 +12,7 @@ export default StyleSheet.create({
   },
   signInButton: {
     marginBottom: 10,
-    paddingVertical: 18,
+    paddingVertical: 16,
   },
   logo: {
     flex: 0.5,
@@ -21,5 +21,5 @@ export default StyleSheet.create({
   wrapper: {
     flex: 1,
   },
-  createButton: {paddingVertical: 18},
+  createButton: {paddingVertical: 16},
 });

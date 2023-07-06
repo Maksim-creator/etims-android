@@ -52,7 +52,7 @@ const SignUpPreview = () => {
         </View>
       </View>
       <View style={styles.loginContainer}>
-        <InterText>Already have an account? </InterText>
+        <InterText style={styles.text}>Already have an account? </InterText>
         <TouchableOpacity onPress={navigateToLogin}>
           <InterText style={styles.loginText}>Log in</InterText>
         </TouchableOpacity>

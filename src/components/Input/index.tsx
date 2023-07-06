@@ -50,7 +50,7 @@ const Input: React.FC<Props> = ({
           onBlur={onBlur}
           secureTextEntry={isPassword}
           placeholder={placeholder}
-          placeholderTextColor={placeholderTextColor}
+          placeholderTextColor={placeholderTextColor || 'rgba(0,0,0,0.5)'}
         />
         {rightIcon && rightIcon}
       </View>
