@@ -1,5 +1,6 @@
 import React, {ReactElement} from 'react';
 import {
+  ColorValue,
   NativeSyntheticEvent,
   StyleProp,
   TextInput,
@@ -21,6 +22,8 @@ interface Props {
   error?: string;
   touched?: boolean;
   containerStyle?: StyleProp<ViewStyle>;
+  placeholder?: string;
+  placeholderTextColor?: ColorValue;
 }
 
 const Input: React.FC<Props> = ({
@@ -33,6 +36,8 @@ const Input: React.FC<Props> = ({
   touched,
   error,
   containerStyle,
+  placeholder,
+  placeholderTextColor,
 }) => {
   return (
     <View style={containerStyle}>
@@ -44,6 +49,8 @@ const Input: React.FC<Props> = ({
           onChangeText={onChange}
           onBlur={onBlur}
           secureTextEntry={isPassword}
+          placeholder={placeholder}
+          placeholderTextColor={placeholderTextColor}
         />
         {rightIcon && rightIcon}
       </View>

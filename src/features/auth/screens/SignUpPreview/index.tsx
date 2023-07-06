@@ -12,16 +12,24 @@ import InterText from '../../../../components/InterText';
 import {ScreenNames} from '../../../../navigation/screenNames';
 import styles from './styles';
 
-const buttons = [
-  {title: 'Google', icon: <Google />},
-  {title: 'Apple', icon: <Apple />},
-  {title: 'Email', icon: <Icon name={'email'} color={'black'} size={20} />},
+const getSignUpButtons = (
+  navigation: NativeStackNavigationProp<ParamListBase>,
+) => [
+  {title: 'Google', icon: <Google />, onPress: () => {}},
+  {title: 'Apple', icon: <Apple />, onPress: () => {}},
+  {
+    title: 'Email',
+    icon: <Icon name={'email'} color={'black'} size={20} />,
+    onPress: () => navigation.navigate(ScreenNames.SIGN_UP),
+  },
 ];
 
 const SignUpPreview = () => {
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
   const navigateToLogin = () => navigation.navigate(ScreenNames.LOGIN);
+
+  const buttons = getSignUpButtons(navigation);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -35,7 +43,7 @@ const SignUpPreview = () => {
             <Button
               key={button.title}
               buttonText={`Continue with ${button.title}`}
-              onPress={() => {}}
+              onPress={button.onPress}
               buttonStyles={styles.socialNetwork}
               buttonTextStyles={styles.socialNetworkText}
               leftIcon={button.icon}
