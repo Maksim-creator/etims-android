@@ -1,10 +1,12 @@
-import React, {ReactElement} from 'react';
+import React, {LegacyRef, ReactElement} from 'react';
 import {
   ColorValue,
+  KeyboardType,
   NativeSyntheticEvent,
   StyleProp,
   TextInput,
   TextInputFocusEventData,
+  TextStyle,
   View,
   ViewStyle,
 } from 'react-native';
@@ -24,6 +26,11 @@ interface Props {
   containerStyle?: StyleProp<ViewStyle>;
   placeholder?: string;
   placeholderTextColor?: ColorValue;
+  inputStyles?: StyleProp<TextStyle>;
+  keyboardType?: KeyboardType;
+  onFocus?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
+  maxLength?: number;
+  ref?: LegacyRef<any>;
 }
 
 const Input: React.FC<Props> = ({
@@ -38,19 +45,28 @@ const Input: React.FC<Props> = ({
   containerStyle,
   placeholder,
   placeholderTextColor,
+  inputStyles,
+  keyboardType,
+  onFocus,
+  maxLength,
+  ref,
 }) => {
   return (
     <View style={containerStyle}>
       {title && <InterText style={styles.title}>{title}</InterText>}
       <View style={styles.searchContainer}>
         <TextInput
-          style={styles.input}
+          ref={ref}
+          style={[styles.input, inputStyles]}
           value={value}
           onChangeText={onChange}
           onBlur={onBlur}
           secureTextEntry={isPassword}
+          onFocus={onFocus}
           placeholder={placeholder}
           placeholderTextColor={placeholderTextColor || 'rgba(0,0,0,0.5)'}
+          keyboardType={keyboardType}
+          maxLength={maxLength}
         />
         {rightIcon && rightIcon}
       </View>
