@@ -30,3 +30,14 @@ export const CodeSchema = Yup.object().shape({
   3: Yup.number().required('Enter a full code'),
   4: Yup.number().required('Enter a full code'),
 });
+
+export const ResetPasswordSchema = Yup.object().shape({
+  password: Yup.string()
+    .min(8, 'Password should be more than 8 symbols')
+    .max(20, 'Password should be less than 20 symbols')
+    .required('Password is required'),
+  confirmPassword: Yup.string().oneOf(
+    [Yup.ref('password')],
+    'Passwords must match',
+  ),
+});

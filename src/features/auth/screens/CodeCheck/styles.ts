@@ -3,7 +3,7 @@ import {mainBlue} from '../../../../../assets/colors';
 
 export default StyleSheet.create({
   container: {flex: 1},
-  safeArea: {marginHorizontal: 20, flex: 1},
+  safeArea: {marginHorizontal: 20, flex: 1, marginTop: 15},
   header: {flex: 0.1},
   content: {flex: 0.8, paddingTop: 36},
   title: {

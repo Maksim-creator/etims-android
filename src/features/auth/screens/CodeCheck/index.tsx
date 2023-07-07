@@ -1,15 +1,22 @@
 import React, {useEffect, useMemo} from 'react';
 import {KeyboardAvoidingView, SafeAreaView, View} from 'react-native';
 import {Formik} from 'formik';
-import {RouteProp, useRoute} from '@react-navigation/native';
+import {
+  ParamListBase,
+  RouteProp,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import Header from '../../components/Header';
 import PoppinsText from '../../../../components/PoppinsText';
 import InterText from '../../../../components/InterText';
 import Button from '../../../../components/Button';
-import styles from './styles';
 import {CodeSchema} from '../../utils';
 import Timer from '../../components/Timer';
 import CodeInput from '../../components/CodeInput';
+import {ScreenNames} from '../../../../navigation/screenNames';
+import styles from './styles';
 
 export interface InitialValues {
   '1': string;
@@ -19,6 +26,8 @@ export interface InitialValues {
 }
 
 const CodeCheck = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
+
   const route = useRoute<RouteProp<{params: {email: string}}>>();
   const [counter, setCounter] = React.useState(59);
   const [startCountdown, setStartCountdown] = React.useState(false);
@@ -42,6 +51,7 @@ const CodeCheck = () => {
     console.log(code);
     //check is code equal
     setStartCountdown(false);
+    navigation.navigate(ScreenNames.RESET_PASSWORD);
   };
 
   useEffect(() => {
