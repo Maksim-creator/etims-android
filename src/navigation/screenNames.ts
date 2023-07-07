@@ -6,4 +6,5 @@ export enum ScreenNames {
   SIGN_UP = 'sign_up',
   FORGOT_PASSWORD = 'forgot_password',
   CODE_CHECK = 'code_check',
+  RESET_PASSWORD = 'reset_password',
 }
