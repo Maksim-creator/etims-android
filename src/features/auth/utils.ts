@@ -23,3 +23,10 @@ export const SignUpSchema = Yup.object().shape({
 export const ForgotPasswordSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
 });
+
+export const CodeSchema = Yup.object().shape({
+  1: Yup.number().required('Enter a full code'),
+  2: Yup.number().required('Enter a full code'),
+  3: Yup.number().required('Enter a full code'),
+  4: Yup.number().required('Enter a full code'),
+});

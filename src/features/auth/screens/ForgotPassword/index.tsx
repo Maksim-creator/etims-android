@@ -15,9 +15,9 @@ import styles from './styles';
 const ForgotPassword = () => {
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
-  const navigateToCodeCheck = () => {
+  const navigateToCodeCheck = ({email}: {email: string}) => {
     //check is email exists
-    navigation.navigate(ScreenNames.CODE_CHECK);
+    navigation.navigate(ScreenNames.CODE_CHECK, {email: email});
   };
 
   return (
@@ -32,7 +32,7 @@ const ForgotPassword = () => {
           account.
         </InterText>
         <Formik
-          initialValues={{email: ''}}
+          initialValues={{email: 'fdggdf@g.c'}}
           onSubmit={navigateToCodeCheck}
           validationSchema={ForgotPasswordSchema}>
           {({
