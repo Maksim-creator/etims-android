@@ -2,15 +2,19 @@ import React, {useState} from 'react';
 import {SafeAreaView, View} from 'react-native';
 import {Formik} from 'formik';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import Header from '../../components/Header';
 import PoppinsText from '../../../../components/PoppinsText';
 import InterText from '../../../../components/InterText';
 import Input from '../../../../components/Input';
 import Button from '../../../../components/Button';
 import {ResetPasswordSchema} from '../../utils';
+import {ScreenNames} from '../../../../navigation/screenNames';
 import styles from './styles';
 
 const ResetPassword = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
     useState(false);
@@ -20,6 +24,10 @@ const ResetPassword = () => {
 
   const showConfirmPassword = () => setIsConfirmPasswordVisible(true);
   const hideConfirmPassword = () => setIsConfirmPasswordVisible(false);
+
+  const handleResetPassword = () => {
+    navigation.navigate(ScreenNames.PASSWORD_CHANGED);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -34,7 +42,7 @@ const ResetPassword = () => {
         <Formik
           initialValues={{password: '', confirmPassword: ''}}
           validationSchema={ResetPasswordSchema}
-          onSubmit={() => {}}>
+          onSubmit={handleResetPassword}>
           {({
             handleBlur,
             handleChange,
