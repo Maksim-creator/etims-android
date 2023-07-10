@@ -48,7 +48,6 @@ const CodeCheck = () => {
       (prev, curr) => prev + curr,
       '',
     );
-    console.log(code);
     //check is code equal
     setStartCountdown(false);
     navigation.navigate(ScreenNames.RESET_PASSWORD);
