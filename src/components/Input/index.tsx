@@ -31,6 +31,7 @@ interface Props {
   onFocus?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
   maxLength?: number;
   ref?: LegacyRef<any>;
+  leftIcon?: ReactElement<Icon>;
 }
 
 const Input: React.FC<Props> = ({
@@ -50,14 +51,16 @@ const Input: React.FC<Props> = ({
   onFocus,
   maxLength,
   ref,
+  leftIcon,
 }) => {
   return (
     <View style={containerStyle}>
       {title && <InterText style={styles.title}>{title}</InterText>}
       <View style={styles.searchContainer}>
+        {leftIcon && leftIcon}
         <TextInput
           ref={ref}
-          style={[styles.input, inputStyles]}
+          style={[styles.input, inputStyles, {paddingLeft: leftIcon ? 40 : 12}]}
           value={value}
           onChangeText={onChange}
           onBlur={onBlur}

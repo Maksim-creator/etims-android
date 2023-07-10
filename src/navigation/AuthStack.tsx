@@ -8,6 +8,7 @@ import ForgotPassword from '../features/auth/screens/ForgotPassword';
 import CodeCheck from '../features/auth/screens/CodeCheck';
 import ResetPassword from '../features/auth/screens/ResetPassword';
 import PasswordChanged from '../features/auth/screens/PasswordChanged';
+import LanguageSelect from '../features/auth/screens/LanguageSelect';
 import {ScreenNames} from './screenNames';
 
 type AuthStackParamList = {
@@ -20,6 +21,7 @@ type AuthStackParamList = {
   [ScreenNames.CODE_CHECK]: {email: string};
   [ScreenNames.RESET_PASSWORD]: undefined;
   [ScreenNames.PASSWORD_CHANGED]: undefined;
+  [ScreenNames.LANGUAGE_SELECT]: undefined;
 };
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
@@ -50,6 +52,10 @@ const AuthStack = () => {
       <Stack.Screen
         name={ScreenNames.PASSWORD_CHANGED}
         component={PasswordChanged}
+      />
+      <Stack.Screen
+        name={ScreenNames.LANGUAGE_SELECT}
+        component={LanguageSelect}
       />
     </Stack.Navigator>
   );

@@ -38,6 +38,8 @@ const Login = () => {
   const navigateToForgotPassword = () =>
     navigation.navigate(ScreenNames.FORGOT_PASSWORD);
 
+  const handleLogin = () => {};
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.star}>
@@ -47,8 +49,8 @@ const Login = () => {
         <PoppinsText style={styles.loginText}>Log in</PoppinsText>
         <Formik
           validationSchema={SignInSchema}
-          initialValues={{email: '', password: ''}}
-          onSubmit={() => {}}>
+          initialValues={{email: 'qwe@g.c', password: '12345678'}}
+          onSubmit={handleLogin}>
           {({
             handleBlur,
             handleChange,
