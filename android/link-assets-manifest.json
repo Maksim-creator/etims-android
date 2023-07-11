@@ -108,6 +108,14 @@
     {
       "path": "assets/fonts/Poppins-ThinItalic.ttf",
       "sha1": "fb8fccca21550e71135f92bbaf8a2e8a12c90465"
+    },
+    {
+      "path": "assets/fonts/icomoon.ttf",
+      "sha1": "aeef1498a578110e0f5fdbb887c026ad0bebfc95"
+    },
+    {
+      "path": "assets/fonts/selection.json",
+      "sha1": "a511a22846f7ceb5102cb1dbc2900ce1faa1b8ed"
     }
   ]
 }
