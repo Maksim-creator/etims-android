@@ -42,6 +42,8 @@
 		DD52863D7534445A9C67C6EE /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0344E93685154D43B7ADF66C /* Poppins-Light.ttf */; };
 		E359CE601CF64E95AF8D48B9 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0F2A98685894C0592E46F2B /* Inter-ExtraLight.ttf */; };
 		E8AC3EB55D8E4DF094970E30 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B240A966BD0244A8A8DD0B9A /* Inter-Thin.ttf */; };
+		B75AB8664CE744BCB24F24E2 /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDE3DC5ABC4F4D87ADBF6673 /* icomoon.ttf */; };
+		8E9616324CC84FCFB10C3A56 /* selection.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FB5D2964E7D4B849F3DC732 /* selection.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		EBDC7080387141919EDD70E5 /* Inter-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Regular.ttf"; path = "../assets/fonts/Inter-Regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F23936A8D2734E9D92A2F55D /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../assets/fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
+		EDE3DC5ABC4F4D87ADBF6673 /* icomoon.ttf */ = {isa = PBXFileReference; name = "icomoon.ttf"; path = "../assets/fonts/icomoon.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3FB5D2964E7D4B849F3DC732 /* selection.json */ = {isa = PBXFileReference; name = "selection.json"; path = "../assets/fonts/selection.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +246,8 @@
 				DEC357B500AB44958495BD36 /* Poppins-SemiBoldItalic.ttf */,
 				0D5C5AF36CC84E50846B9597 /* Poppins-Thin.ttf */,
 				621EDB0A030C4C99B5500227 /* Poppins-ThinItalic.ttf */,
+				EDE3DC5ABC4F4D87ADBF6673 /* icomoon.ttf */,
+				3FB5D2964E7D4B849F3DC732 /* selection.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -405,6 +411,8 @@
 				C7727473BD4A4E29A30DD595 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				123837DC0EEA4302A35A4AE3 /* Poppins-Thin.ttf in Resources */,
 				278F84B91218424E9B3AAEE5 /* Poppins-ThinItalic.ttf in Resources */,
+				B75AB8664CE744BCB24F24E2 /* icomoon.ttf in Resources */,
+				8E9616324CC84FCFB10C3A56 /* selection.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

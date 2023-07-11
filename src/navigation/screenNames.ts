@@ -9,4 +9,9 @@ export enum ScreenNames {
   RESET_PASSWORD = 'reset_password',
   PASSWORD_CHANGED = 'password_changed',
   LANGUAGE_SELECT = 'language_select',
+  DASHBOARD = 'dashboard',
+  COURSES = 'courses',
+  TABS = 'tabs',
+  PROFILE = 'profile',
+  MAIL = 'mail',
 }

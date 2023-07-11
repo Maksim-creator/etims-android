@@ -38,7 +38,9 @@ const Login = () => {
   const navigateToForgotPassword = () =>
     navigation.navigate(ScreenNames.FORGOT_PASSWORD);
 
-  const handleLogin = () => {};
+  const handleLogin = () => {
+    navigation.reset({index: 0, routes: [{name: ScreenNames.TABS}]});
+  };
 
   return (
     <SafeAreaView style={styles.container}>
