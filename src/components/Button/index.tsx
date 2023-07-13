@@ -15,6 +15,7 @@ interface Props {
   primary?: boolean;
   buttonStyles?: StyleProp<ViewStyle>;
   buttonTextStyles?: StyleProp<TextStyle>;
+  iconContainerStyles?: StyleProp<ViewStyle>;
   onPress: () => void;
   leftIcon?: ReactElement<Icon>;
 }
@@ -26,6 +27,7 @@ const Button: React.FC<Props> = ({
   buttonTextStyles,
   onPress,
   leftIcon,
+  iconContainerStyles,
 }) => {
   return (
     <TouchableOpacity
@@ -35,7 +37,9 @@ const Button: React.FC<Props> = ({
         primary ? styles.primary : styles.secondary,
         buttonStyles,
       ]}>
-      {leftIcon && <View style={styles.leftIcon}>{leftIcon}</View>}
+      {leftIcon && (
+        <View style={[styles.leftIcon, iconContainerStyles]}>{leftIcon}</View>
+      )}
       <InterText
         style={[
           styles.buttonText,
