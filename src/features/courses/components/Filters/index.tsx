@@ -1,59 +1,107 @@
 import React from 'react';
-import {TouchableOpacity, View} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import {mainBlue} from '../../../../../assets/colors';
 import InterText from '../../../../components/InterText';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {
+  Button,
+  Divider,
+  HStack,
+  IconButton,
+  Popover,
+  Radio,
+  VStack,
+} from 'native-base';
 import styles from './styles';
 
 interface Props {
-  topics: {value: string; title: string}[];
-  selectedTopic: string;
-  changeTopic: (value: string) => void;
-
-  filters: {icon: string}[];
-  filter: number;
-  changeFilter: (value: number) => void;
+  displaying: number;
+  setDisplaying: (value: number) => void;
+  filter: string;
+  setFilter: (value: string) => void;
+  cleanFilters: () => void;
 }
 
+const filters = [
+  {value: 'name', iconName: 'format-color-text', label: 'Name'},
+  {value: 'date', iconName: 'calendar-range', label: 'Date'},
+  {value: 'completed', iconName: 'check', label: 'Completed (%)'},
+];
+
 const Filters: React.FC<Props> = ({
-  topics,
-  selectedTopic,
-  changeTopic,
-  filters,
+  displaying,
+  setDisplaying,
   filter,
-  changeFilter,
+  setFilter,
+  cleanFilters,
 }) => {
+  const renderTrigger = (triggerProps: any) => (
+    <TouchableOpacity {...triggerProps} style={styles.trigger}>
+      <Icon name={'tune-variant'} size={20} color={'white'} />
+    </TouchableOpacity>
+  );
+
   return (
-    <View style={styles.container}>
-      <View style={styles.itemContainer}>
-        {topics.map(topic => (
-          <TouchableOpacity
-            key={topic.value}
-            onPress={() => changeTopic(topic.value)}
-            style={styles.topic(topic.value === selectedTopic)}>
-            <InterText style={styles.topicTitle(topic.value === selectedTopic)}>
-              {topic.title}
-            </InterText>
-          </TouchableOpacity>
-        ))}
-        <TouchableOpacity style={styles.showMoreButton}>
-          <Icon name={'dots-horizontal'} size={20} color={mainBlue} />
-        </TouchableOpacity>
-      </View>
-      <View style={styles.itemContainer}>
-        <Icon name={'filter-outline'} size={25} color={'rgba(0,0,0,0.4)'} />
-        <View style={styles.filtersWrapper}>
-          {filters.map((f, i) => (
-            <TouchableOpacity
-              key={i}
-              onPress={() => changeFilter(i)}
-              style={styles.filterItem(filter === i)}>
-              <Icon name={f.icon} size={25} color={mainBlue} />
-            </TouchableOpacity>
-          ))}
-        </View>
-      </View>
-    </View>
+    <Popover trigger={renderTrigger}>
+      <Popover.Content w="56" borderRadius={15}>
+        <Popover.Arrow />
+        <Popover.Body>
+          <HStack justifyContent={'space-between'}>
+            <Button
+              onPress={cleanFilters}
+              borderRadius={10}
+              backgroundColor={'danger.600'}
+              colorScheme={'danger'}
+              leftIcon={<Icon name={'close'} color={'white'} size={20} />}>
+              Clear
+            </Button>
+
+            <Button.Group style={styles.displayContainer}>
+              <IconButton
+                onPress={() => setDisplaying(0)}
+                p={1}
+                style={styles.displayListButton(displaying)}
+                icon={
+                  <Icon
+                    name={'format-list-bulleted'}
+                    size={20}
+                    color={mainBlue}
+                  />
+                }
+              />
+              <IconButton
+                onPress={() => setDisplaying(1)}
+                p={1}
+                style={styles.displayTilesButton(displaying)}
+                icon={<Icon name={'dock-window'} size={20} color={mainBlue} />}
+              />
+            </Button.Group>
+          </HStack>
+          <Divider mt={2} />
+          <VStack mt={3}>
+            <InterText style={styles.title}>Filter by</InterText>
+            <Radio.Group
+              value={filter}
+              onChange={setFilter}
+              name={'filtersGroup'}>
+              {filters.map(filterItem => (
+                <HStack
+                  key={filterItem.value}
+                  mt={1}
+                  w={'100%'}
+                  alignItems={'center'}
+                  justifyContent={'space-between'}>
+                  <Radio size={'sm'} value={filterItem.value}>
+                    {filterItem.label}
+                  </Radio>
+                  <Icon name={filterItem.iconName} size={20} color={'black'} />
+                </HStack>
+              ))}
+            </Radio.Group>
+          </VStack>
+        </Popover.Body>
+      </Popover.Content>
+    </Popover>
   );
 };
 

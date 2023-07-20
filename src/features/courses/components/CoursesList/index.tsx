@@ -6,13 +6,13 @@ import styles from './styles';
 
 interface Props {
   courses: any[];
-  filter: number;
+  displaying: number;
 }
 
-const CoursesList: React.FC<Props> = ({filter, courses}) => {
+const CoursesList: React.FC<Props> = ({displaying, courses}) => {
   const animatedCards = useMemo(
     () => courses.map(_ => new Animated.Value(0)),
-    [courses],
+    [],
   );
 
   const animateCards = () => {
@@ -29,7 +29,7 @@ const CoursesList: React.FC<Props> = ({filter, courses}) => {
 
   return (
     <View style={styles.container}>
-      {!filter ? (
+      {!displaying ? (
         <List
           courses={courses}
           animatedCards={animatedCards}

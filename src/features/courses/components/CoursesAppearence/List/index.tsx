@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {Animated, FlatList, Image, ListRenderItem, View} from 'react-native';
-import {Course} from '../../../screens/Courses';
 import InterText from '../../../../../components/InterText';
-import styles from './styles';
 import Badges from '../../Badges';
+import {Course} from '../../../utils/entities';
+import styles from './styles';
 
 interface Props {
   courses: Course[];
@@ -12,13 +12,13 @@ interface Props {
 }
 
 const List: React.FC<Props> = ({courses, animatedCards, animateCards}) => {
-  useEffect(() => animateCards(), [animatedCards]);
+  useEffect(() => animateCards(), [animateCards]);
 
   const renderItem: ListRenderItem<Course> = ({item, index}) => {
     return (
       <Animated.View
         style={[
-          styles.itemContainer(index),
+          styles.itemContainer,
           {
             opacity: animatedCards[index],
             transform: [
@@ -31,21 +31,26 @@ const List: React.FC<Props> = ({courses, animatedCards, animateCards}) => {
             ],
           },
         ]}>
-        <Image source={{uri: item.image}} style={styles.logo} />
+        <Image
+          source={{uri: item.image}}
+          style={styles.logo}
+          resizeMode={'stretch'}
+        />
         <View style={styles.itemContent}>
           <View style={styles.generalInfo}>
-            <InterText style={styles.title}>{item.title}</InterText>
+            <InterText style={styles.title} numberOfLines={1}>
+              {item.title}
+            </InterText>
             <Badges badges={item.badges} />
-            <InterText style={styles.author}>by {item.author}</InterText>
           </View>
-          <View>
+          <View style={styles.completedWrapper}>
+            <InterText style={styles.completedText}>
+              {item.completed}% completed
+            </InterText>
             <View style={styles.progressContainer}>
               <View style={styles.fullLine} />
               <View style={styles.progress(item.completed)} />
             </View>
-            <InterText style={styles.completedText}>
-              {item.completed}% completed
-            </InterText>
           </View>
         </View>
       </Animated.View>

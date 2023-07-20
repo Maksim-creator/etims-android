@@ -1,16 +1,16 @@
 import {StyleSheet} from 'react-native';
+import {mainBlue} from '../../../../../../assets/colors';
 
-export default StyleSheet.create({
+export default StyleSheet.create<any>({
   itemContainer: {
     marginTop: 5,
     backgroundColor: 'white',
-    width: '48%',
-    marginHorizontal: 3,
+    marginHorizontal: 10,
     marginBottom: 10,
-    shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.5,
-    shadowRadius: 4,
+    shadowRadius: 1,
+    shadowOpacity: 0.3,
     shadowColor: 'rgba(0,0,0,0.4)',
+    shadowOffset: {width: 0, height: 4},
     borderRadius: 10,
     elevation: 5,
   },
@@ -22,11 +22,11 @@ export default StyleSheet.create({
   },
   content: {
     flex: 1,
-    paddingHorizontal: 6,
+    paddingHorizontal: 12,
     justifyContent: 'space-between',
   },
-  generalInfo: {paddingTop: 6, paddingBottom: 12},
-  itemTitle: {fontFamily: 'Inter-SemiBold', fontSize: 17},
+  generalInfo: {paddingTop: 6, paddingBottom: 9},
+  itemTitle: {fontFamily: 'Poppins-Regular', fontSize: 18},
   itemDescription: {
     fontFamily: 'Inter-Regular',
     fontSize: 12,
@@ -47,5 +47,31 @@ export default StyleSheet.create({
     marginHorizontal: 5,
   },
   authorName: {color: '#787A80', fontSize: 12},
-  columnWrapper: {justifyContent: 'space-between'},
+  progressContainer: {
+    // flexDirection: 'row',
+    position: 'relative',
+    borderRadius: 100,
+    height: 8,
+    width: '100%',
+  },
+  fullLine: {
+    backgroundColor: 'rgba(0,0,0,0.1)',
+    width: '100%',
+    height: 8,
+    position: 'absolute',
+    borderRadius: 100,
+  },
+  progress: (completed: number) => ({
+    backgroundColor: mainBlue,
+    position: 'absolute',
+    height: 4,
+    top: 2,
+    borderRadius: 100,
+    width: `${completed}%`,
+  }),
+  completedText: {
+    fontFamily: 'Poppins-Medium',
+    fontSize: 12,
+  },
+  completed: {paddingBottom: 1},
 });
