@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Tiles: React.FC<Props> = ({courses, animatedCards, animateCards}) => {
-  useEffect(() => animateCards(), [animatedCards]);
+  useEffect(() => animateCards(), [animateCards, animatedCards]);
 
   const renderItem: ListRenderItem<Course> = ({item, index}) => {
     return (
@@ -31,7 +31,11 @@ const Tiles: React.FC<Props> = ({courses, animatedCards, animateCards}) => {
             ],
           },
         ]}>
-        <Image source={{uri: item.image}} style={styles.logo} />
+        <Image
+          source={{uri: item.image}}
+          resizeMode={'cover'}
+          style={styles.logo}
+        />
         <View style={styles.content}>
           <View style={styles.generalInfo}>
             <Badges badges={item.badges} />
@@ -40,6 +44,15 @@ const Tiles: React.FC<Props> = ({courses, animatedCards, animateCards}) => {
             <InterText numberOfLines={2} style={styles.itemDescription}>
               {item.description}
             </InterText>
+          </View>
+          <View style={styles.completed}>
+            <InterText style={styles.completedText}>
+              {item.completed}% completed
+            </InterText>
+            <View style={styles.progressContainer}>
+              <View style={styles.fullLine} />
+              <View style={styles.progress(item.completed)} />
+            </View>
           </View>
           <View style={styles.otherInfo}>
             <Image
@@ -58,8 +71,7 @@ const Tiles: React.FC<Props> = ({courses, animatedCards, animateCards}) => {
 
   return (
     <FlatList
-      columnWrapperStyle={styles.columnWrapper}
-      numColumns={2}
+      // columnWrapperStyle={styles.columnWrapper}
       data={courses}
       renderItem={renderItem}
       keyExtractor={keyExtractor}
